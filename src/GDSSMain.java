@@ -41,5 +41,10 @@ public class GDSSMain {
 
         bd.hitung();
 
+        System.out.println();
+
+        Copeland cp = new Copeland(dm, alternatifs);
+        cp.hitung();
+
     }
 }
