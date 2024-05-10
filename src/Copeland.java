@@ -5,20 +5,10 @@ public class Copeland {
     private ArrayList<DecisionMaker> decisionMakers;
     private int[][] peringkat;
 
-    public Copeland(ArrayList<DecisionMaker> dm,ArrayList<Alternatif> alternatifs) {
+    public Copeland(ArrayList<DecisionMaker> dm,ArrayList<Alternatif> alternatifs, int[][] peringkat) {
         this.alternatifs = alternatifs;
         this.decisionMakers = dm;
-        //peringkat hasil perhitangan DSS MABAC
-        peringkat = new int[][]{
-            {3,4,4},
-            {4,2,2},
-            {8,7,8},
-            {5,8,7},
-            {7,5,6},
-            {2,1,3},
-            {1,3,1},
-            {6,6,5}
-        };
+        this.peringkat = peringkat;
     }
 
     public void hitung(){
@@ -75,7 +65,7 @@ public class Copeland {
                 }
             }
             
-            if(sum >=2){
+            if(sum >= (decisionMakers.size()/2+1)){
                 menang[i][2] = menang[i][0];
             }else{
                 menang[i][2] = menang[i][1];
